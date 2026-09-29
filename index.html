@@ -26,7 +26,8 @@
     .site-layout { max-width: 1510px; margin: 0 auto; display: grid; grid-template-columns: minmax(270px, 330px) minmax(0, 1fr); gap: clamp(30px, 3vw, 46px); padding: 48px 42px 72px; }
     .side-nav { align-self: start; padding-top: 105px; transform: translate(-100px, 100px); }
     .side-nav nav { min-height: 343px; display: flex; flex-direction: column; justify-content: space-between; }
-    .side-nav a { display: block; width: fit-content; max-width: 100%; color: var(--accent); text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-weight: 600; line-height: 1.08; letter-spacing: -.02em; padding: 10px 0 14px; }
+    .side-nav a { position: relative; display: block; width: fit-content; max-width: 100%; color: var(--accent); text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-weight: 600; line-height: 1.08; letter-spacing: -.02em; padding: 10px 0 14px; }
+    .side-nav a::before { content: ""; position: absolute; width: 42px; height: 1px; background: var(--line); left: -56px; top: 23px; }
     .side-nav a:nth-child(1) { font-size: clamp(23px, 1.8vw, 31px); font-weight: 700; }
     .side-nav a:nth-child(2) { font-size: clamp(18px, 1.35vw, 23px); font-weight: 700; margin-left: 24px; }
     .side-nav a:nth-child(3) { font-size: clamp(18px, 1.35vw, 23px); font-weight: 700; margin-left: 48px; }
