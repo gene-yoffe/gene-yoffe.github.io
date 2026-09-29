@@ -24,13 +24,15 @@
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
     .site-layout { max-width: 1510px; margin: 0 auto; display: grid; grid-template-columns: minmax(270px, 330px) minmax(0, 1fr); gap: clamp(30px, 3vw, 46px); padding: 48px 42px 72px; }
-    .side-nav { align-self: start; padding-top: 105px; }
+    .side-nav { align-self: start; padding-top: 105px; transform: translate(-22px, 24px); }
     .side-nav nav { min-height: 430px; display: flex; flex-direction: column; justify-content: space-between; }
     .side-nav a { display: block; width: fit-content; max-width: 100%; color: var(--ink); text-decoration: none; font-family: Georgia, "Times New Roman", serif; font-weight: 400; line-height: 1.08; letter-spacing: -.035em; padding: 10px 0 14px; }
     .side-nav a:nth-child(1) { font-size: clamp(25px, 2vw, 34px); }
-    .side-nav a:nth-child(2) { font-size: clamp(22px, 1.7vw, 29px); margin-left: 24px; }
-    .side-nav a:nth-child(3) { font-size: clamp(22px, 1.7vw, 29px); margin-left: 48px; }
+    .side-nav a:nth-child(2) { font-size: clamp(18px, 1.35vw, 23px); margin-left: 24px; }
+    .side-nav a:nth-child(3) { font-size: clamp(18px, 1.35vw, 23px); margin-left: 48px; }
+    .gateway-title::after { content: " →"; color: var(--muted); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: .62em; font-weight: 500; white-space: nowrap; display: inline-block; transition: transform .16s ease, color .16s ease; }
     .side-nav a:hover { color: var(--accent); }
+    .side-nav a:hover .gateway-title::after { color: var(--accent); transform: translateX(4px); }
     .side-nav .nav-meta { display: block; margin-top: 9px; color: var(--muted); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 12px; font-weight: 600; line-height: 1.5; letter-spacing: .02em; }
     .shell { min-width: 0; padding: 0; }
     header { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); padding-bottom: 25px; }
@@ -53,7 +55,7 @@
     footer a:hover { text-decoration: underline; }
     @media (max-width: 850px) {
       .site-layout { display: block; padding: 25px 27px 40px; }
-      .side-nav { padding: 28px 0 24px; border-bottom: 1px solid var(--line); }
+      .side-nav { padding: 28px 0 24px; border-bottom: 1px solid var(--line); transform: none; }
       .side-nav nav { min-height: 0; height: auto; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 24px; }
       .side-nav a, .side-nav a:nth-child(1), .side-nav a:nth-child(2), .side-nav a:nth-child(3) { flex: 1; font-size: 22px; margin-left: 0; padding: 16px 0 18px; }
       header { display: none; }
@@ -76,9 +78,9 @@
   <div class="site-layout">
     <aside class="side-nav" aria-label="Site sections">
       <nav>
-        <a href="#data-science">Data Science Projects</a>
-        <a href="#teaching">UIC Teaching<span class="nav-meta">2025–2026</span></a>
-        <a href="#scientific-computing">Numerical Scientific Computing<span class="nav-meta">2010–2013<br>PhD &amp; Postdoctoral Work</span></a>
+        <a href="#data-science"><span class="gateway-title">Data Science Projects</span></a>
+        <a href="#teaching"><span class="gateway-title">UIC Teaching</span><span class="nav-meta">2025–2026</span></a>
+        <a href="#scientific-computing"><span class="gateway-title">Numerical Scientific Computing</span><span class="nav-meta">2010–2013<br>PhD &amp; Postdoctoral Work</span></a>
       </nav>
     </aside>
     <div class="shell">
