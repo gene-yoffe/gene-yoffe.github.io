@@ -25,7 +25,8 @@
     body { margin: 0; min-height: 100vh; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
     .site-layout { max-width: 1510px; margin: 0 auto; display: grid; grid-template-columns: minmax(270px, 330px) minmax(0, 1fr); gap: clamp(30px, 3vw, 46px); padding: 48px 42px 72px; }
     .side-nav { align-self: start; padding-top: 105px; transform: translate(clamp(-100px, calc(729px - 50vw), 0px), 100px); }
-    .side-nav nav { min-height: 343px; display: flex; flex-direction: column; justify-content: space-between; }
+    .side-nav nav { display: flex; flex-direction: column; gap: 28px; }
+    .side-nav nav > :not(:last-child) { min-height: 156px; }
     .side-nav nav > a, .project-gateway-title { position: relative; display: block; width: fit-content; max-width: 100%; color: var(--accent); text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-weight: 600; line-height: 1.08; letter-spacing: -.02em; padding: 10px 0 14px; }
     .side-nav nav > a::before, .project-gateway-title::before { content: ""; position: absolute; width: 42px; height: 1px; background: var(--line); left: -56px; top: 23px; }
     .project-gateway-title { font-size: clamp(23px, 1.8vw, 31px); font-weight: 700; margin: 0; text-transform: none; }
@@ -57,7 +58,8 @@
     @media (max-width: 850px) {
       .site-layout { display: block; padding: 25px 27px 40px; }
       .side-nav { padding: 28px 0 24px; border-bottom: 1px solid var(--line); transform: none; }
-      .side-nav nav { min-height: 0; height: auto; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 24px; }
+      .side-nav nav { flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 24px; }
+      .side-nav nav > :not(:last-child) { min-height: 0; }
       .side-nav nav > a:nth-child(n), .project-gateway-title { font-size: 22px; margin-left: 0; padding: 16px 0 18px; }
       .side-nav nav > a, .project-gateway { flex: 1; }
       header { display: none; }
