@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="description" content="A Forte project that predicted next-day returns for stocks heavily discussed on r/WallStreetBets that day.">
+  <link rel="canonical" href="https://gene-yoffe.github.io/projects/sentiment-trading/">
+  <title>Sentiment-Based Trading Strategy | Gene Yoffe</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #182b35;
+      --muted: #52626c;
+      --accent: #185b70;
+      --line: #dce2e1;
+      --paper: #f7f7f4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 0 clamp(20px, 6vw, 76px);
+      background: var(--paper);
+      color: var(--ink);
+      font: 1rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+    a { color: var(--accent); text-underline-offset: .2em; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .site-header, footer {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px 24px;
+      flex-wrap: wrap;
+      padding: 24px 0;
+    }
+    .site-header { border-bottom: 1px solid var(--line); }
+    .site-header a { font-weight: 650; }
+    .wordmark { color: var(--ink); text-decoration: none; letter-spacing: -.025em; }
+    .hero { padding: clamp(44px, 8vw, 90px) 0 40px; }
+    .category { color: var(--accent); font-size: .875rem; font-weight: 700; }
+    h1, h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      line-height: 1.06;
+    }
+    h1 { max-width: 17ch; margin: 14px 0 20px; font-size: clamp(2.65rem, 7.5vw, 5.35rem); letter-spacing: -.06em; }
+    h2 { margin: 0 0 18px; font-size: clamp(1.9rem, 4vw, 2.7rem); letter-spacing: -.035em; }
+    p { margin: 0 0 12px; }
+    .lead { max-width: 66ch; font-size: clamp(1.125rem, 2.4vw, 1.35rem); }
+    .summary { max-width: 74ch; color: var(--muted); }
+    .credit { margin-top: 18px; color: var(--muted); }
+    section { padding: clamp(28px, 5vw, 48px) 0; border-top: 1px solid var(--line); }
+    figure { margin: 0; }
+    figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+    figcaption { max-width: 74ch; margin-top: 14px; color: var(--muted); }
+    figcaption a { display: inline-block; margin-top: 6px; font-weight: 650; }
+    footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="../../">Gene Yoffe</a>
+    <a href="../../#data-science">Data Science &amp; AI Projects</a>
+  </header>
+  <main>
+    <article>
+      <header class="hero">
+        <p class="category">Data Science &amp; AI</p>
+        <h1>Sentiment-Based Trading Strategy</h1>
+        <p class="lead">At Forte, we combined sentiment and stock performance features to predict next-day returns for stocks heavily discussed on r/WallStreetBets that day.</p>
+        <p class="summary">We used natural language processing to identify stock references in post titles and score their sentiment. For those stocks, we calculated three daily features: average sentiment, how much sentiment varied across posts, and how many posts mentioned the stock. We combined these with recent returns and trends for the stock, its industry, its sector, and the broader market in an XGBoost model.</p>
+        <p class="summary">The strategy achieved a Sharpe ratio of 2.7 during periods of heightened activity on WallStreetBets.</p>
+        <p class="credit">Genady Yoffe · Forte</p>
+      </header>
+
+      <section aria-labelledby="example">
+        <h2 id="example">GameStop (GME) example</h2>
+        <figure>
+          <img src="return-predictor.png" width="999" height="562" decoding="async"
+               alt="Two Reddit posts mentioning GameStop feed sentiment features into an XGBoost model alongside recent market performance. The example shows a predicted next-day return of 3.1%.">
+          <figcaption>
+            In this example, two GameStop post titles scored 0.80 and 0.90. The resulting three sentiment features joined 15 performance features to produce an illustrative next-day return prediction of 3.1%.
+            <a href="return-predictor.png">View full-size illustration</a>
+          </figcaption>
+        </figure>
+      </section>
+
+    </article>
+  </main>
+  <footer>
+    <span>Gene Yoffe</span>
+    <a href="../../#data-science">Back to projects</a>
+  </footer>
+</body>
+</html>
